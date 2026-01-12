@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alekhya | Software Engineer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
       background: #0b0b0b;
       color: #fff;
     }
+
+    /* Navbar */
     nav {
       position: fixed; top: 0; width: 100%; padding: 1rem 3rem;
       display: flex; justify-content: space-between; align-items: center;
@@ -19,26 +23,82 @@
     nav a { color: #ccc; margin-left: 1.5rem; text-decoration: none; font-weight: 500; }
     nav a:hover { color: #ff3b3b; }
 
+    /* Header */
     header {
       height: 100vh; display: flex; flex-direction: column;
       justify-content: center; align-items: center; text-align: center;
     }
     header h1 { font-size: 3.8rem; }
+    header h1 .wave { display: inline-block; animation: wave 2s infinite; }
     header span { color: #ff3b3b; }
     header p { margin-top: 1rem; font-size: 1.4rem; color: #aaa; }
 
-    .quick { margin-top: 3rem; display: flex; gap: 1.5rem; overflow-x: auto; }
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Animated roles */
+    .roles {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      height: 2rem;
+      overflow: hidden;
+      position: relative;
+      color: #ff3b3b;
+      font-weight: 600;
+    }
+    .roles span {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideRole 6s linear infinite 0s;
+    }
+    .roles span:nth-child(2) { animation-delay: 2s; }
+    .roles span:nth-child(3) { animation-delay: 4s; }
+    @keyframes slideRole {
+      0%, 33% { opacity: 0; transform: translateY(50px); }
+      10%, 30% { opacity: 1; transform: translateY(0px); }
+      33%, 100% { opacity: 0; transform: translateY(-50px); }
+    }
+
+    /* Quick cards */
+    .quick { margin-top: 2rem; display: flex; gap: 1.5rem; overflow-x: auto; }
     .card {
-      min-width: 200px; padding: 1.5rem; border-radius: 18px;
+      min-width: 180px; padding: 1.5rem; border-radius: 18px;
       background: #151515; text-align: center; transition: 0.3s;
+      cursor: pointer;
     }
     .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(255,59,59,0.3); }
 
+    /* Sections */
     section { padding: 6rem 8%; }
     h2 { color: #ff3b3b; font-size: 2.4rem; margin-bottom: 2rem; }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
     .box { background: #151515; padding: 2rem; border-radius: 20px; }
+
+    /* Skills with icons */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .skill {
+      background: #151515; padding: 1.5rem; border-radius: 15px; width: 120px;
+      display: flex; flex-direction: column; align-items: center; transition: transform 0.3s;
+    }
+    .skill:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(255,59,59,0.3); }
+    .skill i { font-size: 2.5rem; margin-bottom: 10px; color: #ff3b3b; }
+    .skill span { margin-top: 5px; font-weight: 600; }
+
+    /* Social icons in contact */
+    .social-icons { display: flex; gap: 20px; justify-content: center; margin-top: 1rem; }
+    .social-icons a { color: #fff; font-size: 2rem; transition: 0.3s; }
+    .social-icons a:hover { color: #ff3b3b; }
 
     footer { padding: 2rem; text-align: center; color: #777; }
   </style>
@@ -57,8 +117,12 @@
 </nav>
 
 <header id="home">
-  <h1>Hi, 👋 I'm <span>Alekhya</span></h1>
-  <p>I can be your Software Engineer | Embedded Engineer | Networking</p>
+  <h1>Hi <span class="wave">👋</span> I'm <span>Alekhya</span></h1>
+  <div class="roles">
+    <span>Software Engineer</span>
+    <span>Embedded Engineer</span>
+    <span>Networking</span>
+  </div>
 
   <div class="quick">
     <div class="card">📄 Resume</div>
@@ -71,11 +135,15 @@
 
 <section id="skills">
   <h2>Technical Expertise</h2>
-  <div class="grid">
-    <div class="box">Python, Java, C, C++, SQL</div>
-    <div class="box">Spring Boot, Django, REST APIs</div>
-    <div class="box">AWS, Docker, Kubernetes, CI/CD</div>
-    <div class="box">Linux, TCP/UDP, Embedded & Networking</div>
+  <div class="skills-grid">
+    <div class="skill"><i class="fab fa-python"></i><span>Python</span></div>
+    <div class="skill"><i class="fab fa-java"></i><span>Java</span></div>
+    <div class="skill"><i class="fas fa-microchip"></i><span>Embedded</span></div>
+    <div class="skill"><i class="fas fa-network-wired"></i><span>Networking</span></div>
+    <div class="skill"><i class="fab fa-html5"></i><span>HTML</span></div>
+    <div class="skill"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+    <div class="skill"><i class="fas fa-database"></i><span>SQL</span></div>
+    <div class="skill"><i class="fab fa-aws"></i><span>AWS</span></div>
   </div>
 </section>
 
@@ -103,8 +171,10 @@
 
 <section id="contact">
   <h2>Contact</h2>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/alekhya-ramisetty-71733622a/" target="_blank">Profile</a></p>
-  <p>GitHub: <a href="https://github.com/Alekhyaramisetty" target="_blank">Repositories</a></p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/alekhya-ramisetty-71733622a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Alekhyaramisetty" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
 </section>
 
 <footer>
@@ -113,4 +183,3 @@
 
 </body>
 </html>
-
