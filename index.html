@@ -8,159 +8,109 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: #0b0b0b;
       color: #fff;
-      overflow-x: hidden;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    header h1 {
-      font-size: 4rem;
-      animation: glow 3s infinite alternate;
-    }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 1rem;
-      opacity: 0.9;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #00e6ff; }
-      to { text-shadow: 0 0 30px #00e6ff, 0 0 60px #00e6ff; }
     }
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      background: rgba(0,0,0,0.3);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      z-index: 1000;
+      position: fixed; top: 0; width: 100%; padding: 1rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); z-index: 1000;
     }
-    nav a {
-      color: #00e6ff;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: 500;
+    nav a { color: #ccc; margin-left: 1.5rem; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: #ff3b3b; }
+
+    header {
+      height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
     }
-    section {
-      padding: 5rem 10%;
-    }
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      color: #00e6ff;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
+    header h1 { font-size: 3.8rem; }
+    header span { color: #ff3b3b; }
+    header p { margin-top: 1rem; font-size: 1.4rem; color: #aaa; }
+
+    .quick { margin-top: 3rem; display: flex; gap: 1.5rem; overflow-x: auto; }
     .card {
-      background: rgba(255,255,255,0.08);
-      padding: 2rem;
-      border-radius: 16px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      min-width: 200px; padding: 1.5rem; border-radius: 18px;
+      background: #151515; text-align: center; transition: 0.3s;
     }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,230,255,0.3);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.4);
-    }
-    .social a {
-      margin: 0 1rem;
-      color: #00e6ff;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(255,59,59,0.3); }
+
+    section { padding: 6rem 8%; }
+    h2 { color: #ff3b3b; font-size: 2.4rem; margin-bottom: 2rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+    .box { background: #151515; padding: 2rem; border-radius: 20px; }
+
+    footer { padding: 2rem; text-align: center; color: #777; }
   </style>
 </head>
 <body>
 
 <nav>
-  <div><strong>Alekhya</strong></div>
+  <strong>Alekhya</strong>
   <div>
-    <a href="#about">About</a>
+    <a href="#home">Home</a>
     <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<header>
-  <div>
-    <h1>Alekhya</h1>
-    <p>Software Engineer | Embedded Software Engineer | Networking</p>
+<header id="home">
+  <h1>Hi, 👋 I'm <span>Alekhya</span></h1>
+  <p>I can be your Software Engineer | Embedded Engineer | Networking</p>
+
+  <div class="quick">
+    <div class="card">📄 Resume</div>
+    <div class="card">👩‍💻 About Me</div>
+    <div class="card">🧠 Skills</div>
+    <div class="card">💼 Experience</div>
+    <div class="card">📬 Contact</div>
   </div>
 </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a passionate Software Engineer with hands-on experience in backend development, embedded systems, and networking.
-    I enjoy building reliable, scalable software systems and continuously learning new technologies.
-  </p>
-</section>
-
 <section id="skills">
-  <h2>Skills</h2>
-  <div class="cards">
-    <div class="card">Python, Java, C, C++, SQL</div>
-    <div class="card">Spring Boot, Django, REST APIs</div>
-    <div class="card">AWS, Docker, Kubernetes, CI/CD</div>
-    <div class="card">Linux, TCP/UDP, Networking</div>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Associate Software Engineer</h3>
-      <p>Global Edge (Capgemini)</p>
-      <p>Worked on backend systems, networking protocols, CI/CD pipelines, and Linux-based applications.</p>
-    </div>
-    <div class="card">
-      <h3>Software Engineer Intern</h3>
-      <p>Global Edge</p>
-      <p>Contributed to real-world software modules using Python and C/C++.</p>
-    </div>
+  <h2>Technical Expertise</h2>
+  <div class="grid">
+    <div class="box">Python, Java, C, C++, SQL</div>
+    <div class="box">Spring Boot, Django, REST APIs</div>
+    <div class="box">AWS, Docker, Kubernetes, CI/CD</div>
+    <div class="box">Linux, TCP/UDP, Embedded & Networking</div>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
-  <div class="cards">
-    <div class="card">Hungrify – Smart Food Ordering Platform</div>
-    <div class="card">Crowd Connect – Crowdfunding Platform</div>
-    <div class="card">Employee Leave & Payroll Management System</div>
-    <div class="card">Image Enhancement using Retinex Algorithm</div>
+  <div class="grid">
+    <div class="box">Hungrify – Food Ordering Platform</div>
+    <div class="box">Crowd Connect – Crowdfunding Platform</div>
+    <div class="box">Employee Leave & Payroll System</div>
+    <div class="box">Image Enhancement (Retinex Algorithm)</div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="grid">
+    <div class="box">
+      <strong>Associate Software Engineer</strong><br/>Global Edge (Capgemini)
+    </div>
+    <div class="box">
+      <strong>Software Engineer Intern</strong><br/>Global Edge
+    </div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <div class="social">
-    <a href="https://www.linkedin.com/in/alekhya-ramisetty-71733622a/" target="_blank">LinkedIn</a>
-    <a href="https://github.com/Alekhyaramisetty" target="_blank">GitHub</a>
-  </div>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/alekhya-ramisetty-71733622a/" target="_blank">Profile</a></p>
+  <p>GitHub: <a href="https://github.com/Alekhyaramisetty" target="_blank">Repositories</a></p>
 </section>
 
 <footer>
-  <p>© 2026 Alekhya | Software Engineer Portfolio</p>
+  © 2026 Alekhya | Portfolio
 </footer>
 
 </body>
 </html>
+
