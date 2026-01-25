@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #000; color: #fff; }
+
+    /* NAVBAR */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+      border-bottom: 1px solid #111;
+    }
+    nav {
+      max-width: 1200px; margin: auto; padding: 15px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav h1 { color: #ff3b3b; font-size: 22px; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul li a {
+      text-decoration: none; color: #fff; font-size: 14px;
+      transition: color .3s;
+    }
+    nav ul li a:hover { color: #ff3b3b; }
+
+    /* HERO */
+    .hero {
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 20px;
+    }
+    .hero h2 { font-size: 48px; font-weight: 700; }
+    .hero h2 span { color: #ff3b3b; }
+    .hero p { margin-top: 10px; font-size: 20px; color: #ccc; }
+
+    /* QUICK CARDS */
+    .quick {
+      margin-top: 40px;
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .card {
+      width: 200px; padding: 20px;
+      background: linear-gradient(145deg, #0b0b0b, #111);
+      border-radius: 16px; text-align: center;
+      transition: transform .3s, box-shadow .3s;
+      border: 1px solid #111;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255,59,59,0.3);
+    }
+    .card i { font-size: 28px; margin-bottom: 10px; color: #ff3b3b; }
+    .card h4 { font-size: 16px; margin-bottom: 6px; }
+    .card span { font-size: 13px; color: #aaa; }
+
+    /* SECTION */
+    section {
+      max-width: 1200px; margin: auto; padding: 80px 20px;
+    }
+    section h3 { font-size: 28px; margin-bottom: 20px; }
+    section h3 span { color: #ff3b3b; }
+
+    /* SKILLS */
+    .skills {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px;
+    }
+    .skill-box {
+      background: #0b0b0b; border: 1px solid #111; border-radius: 16px; padding: 20px;
+    }
+    .skill-box h4 { margin-bottom: 10px; }
+    .skill { display: flex; justify-content: space-between; font-size: 14px; margin: 8px 0; color: #ccc; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 30px; color: #666; border-top: 1px solid #111;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1>Y</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Hi 👋 I'm <span>Your Name</span></h2>
+    <p>I can be your Software / Data / Cloud Engineer</p>
+
+    <div class="quick">
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h4>Projects</h4>
+        <span>Selected work</span>
+      </div>
+      <div class="card">
+        <i class="fas fa-certificate"></i>
+        <h4>Certifications</h4>
+        <span>Credentials</span>
+      </div>
+      <div class="card">
+        <i class="fas fa-envelope"></i>
+        <h4>Contact</h4>
+        <span>Reach out</span>
+      </div>
+      <div class="card">
+        <i class="fas fa-user"></i>
+        <h4>About Me</h4>
+        <span>Summary</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h3>Technical <span>Expertise</span></h3>
+  <div class="skills">
+    <div class="skill-box">
+      <h4>Programming</h4>
+      <div class="skill"><span>Python</span><span>Advanced</span></div>
+      <div class="skill"><span>Java</span><span>Advanced</span></div>
+      <div class="skill"><span>SQL</span><span>Advanced</span></div>
+    </div>
+    <div class="skill-box">
+      <h4>Data / Cloud</h4>
+      <div class="skill"><span>AWS</span><span>Advanced</span></div>
+      <div class="skill"><span>Azure</span><span>Advanced</span></div>
+      <div class="skill"><span>GCP</span><span>Intermediate</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Your Name · All Rights Reserved
+</footer>
+
+</body>
+</html>
