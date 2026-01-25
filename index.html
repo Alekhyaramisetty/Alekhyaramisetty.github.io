@@ -174,22 +174,26 @@
 </footer>
 
 <!-- ABOUT MODAL -->
+<!-- ABOUT MODAL -->
 <div id="aboutModal" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000">
-  <div class="glass" style="max-width:700px;width:90%;display:flex;gap:25px;align-items:center;position:relative">
+  <div class="glass" style="max-width:520px;width:90%;text-align:center;position:relative">
     <span onclick="closeModal()" style="position:absolute;top:15px;right:20px;cursor:pointer;font-size:22px">✕</span>
-    <img src="profile.jpg" alt="Alekhya Ramisetty" style="width:220px;height:280px;object-fit:cover;border-radius:18px" />
-    <div>
-      <h3 style="margin-bottom:10px">Alekhya Ramisetty</h3>
-      <p style="line-height:1.7;color:#ddd">
-        Hello, I’m Alekhya — welcome to my profile! I’m a software engineer with a strong interest in the intersection of data, networking, and real‑world impact.
-        Over the years, I’ve worked on building reliable data pipelines, ETL processes, and networking systems using Python, SQL, BigQuery, AWS, and GCP — helping teams turn complex, unstructured data and systems into clear, actionable outcomes.
-        <br><br>
-        What excites me most is the journey from raw inputs to real value — whether that’s designing scalable data pipelines, optimizing TCP/UDP communication, or working across 4G/5G protocol layers to improve system efficiency and reliability.
-        I enjoy building clean, maintainable systems that engineers and stakeholders can truly depend on.
-        <br><br>
-        Beyond work, I believe strongly in balance and continuous learning. You’ll often find me exploring new technologies, improving my problem‑solving skills, or taking time to recharge — each experience helping me grow in curiosity, resilience, and adaptability.
-      </p>
-    </div>
+
+    <!-- ROUND PHOTO -->
+    <img src="profile.jpg" alt="Alekhya Ramisetty"
+      style="width:140px;height:140px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block;box-shadow:0 20px 40px rgba(0,0,0,.6)" />
+
+    <h3 style="margin-bottom:12px">Alekhya Ramisetty</h3>
+
+    <!-- ABOUT CONTENT -->
+    <p style="line-height:1.7;color:#ddd;font-size:14px">
+      Associate Software Engineer with 1+ year of experience working across data engineering and networking domains.
+      I specialize in building reliable data pipelines and ETL processes using Python, SQL, BigQuery, and cloud platforms like AWS and GCP to support scalable, AI‑driven decision‑making.
+      <br><br>
+      My work involves designing and implementing TCP/UDP socket‑based communication, developing and testing 4G/5G network protocols using Wireshark and OpenAirInterface, and working across Layer 1–3 (PHY, MAC, RLC, PDCP, RRC, NAS) in telecom environments.
+      <br><br>
+      I focus strongly on clean coding practices, Linux‑based system programming, and building solutions that are efficient, observable, and dependable in real‑world production systems.
+    </p>
   </div>
 </div>
 
