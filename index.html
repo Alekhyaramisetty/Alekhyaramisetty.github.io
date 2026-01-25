@@ -231,4 +231,237 @@
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alekhya Ramisetty | 3D Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: radial-gradient(circle at top, #0b0b0b, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    nav {
+      max-width: 1200px; margin: auto; padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav h1 { color: #ff3b3b; font-size: 22px; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 14px; opacity: .85; }
+    nav ul li a:hover { color: #ff3b3b; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 60px;
+    }
+    .hero h2 { font-size: 52px; font-weight: 700; }
+    .hero h2 span { color: #ff3b3b; }
+    .hero p { margin-top: 12px; font-size: 20px; color: #ccc; }
+
+    /* QUICK LOOK 3D CARDS */
+    .quick-wrap {
+      margin-top: 50px;
+      perspective: 1200px;
+    }
+    .quick {
+      display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+    }
+    .q-card {
+      width: 220px; height: 150px;
+      background: linear-gradient(145deg, #0e0e0e, #151515);
+      border-radius: 18px;
+      padding: 20px;
+      transform-style: preserve-3d;
+      transition: transform .6s ease, box-shadow .6s ease;
+      border: 1px solid #111;
+      cursor: pointer;
+    }
+    .q-card:hover {
+      transform: rotateY(18deg) rotateX(10deg) translateY(-12px);
+      box-shadow: 0 30px 60px rgba(255,59,59,0.35);
+    }
+    .q-card i { font-size: 28px; color: #ff3b3b; margin-bottom: 10px; }
+    .q-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .q-card span { font-size: 13px; color: #aaa; }
+
+    /* SECTIONS */
+    section {
+      max-width: 1200px; margin: auto; padding: 90px 20px;
+    }
+    section h3 {
+      font-size: 32px; margin-bottom: 30px;
+    }
+    section h3 span { color: #ff3b3b; }
+
+    /* GLASS CARDS */
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 22px; }
+
+    /* SKILLS */
+    .skill { display: flex; justify-content: space-between; font-size: 14px; margin: 8px 0; color: #ddd; }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block; margin-top: 20px;
+      padding: 12px 22px; border-radius: 30px;
+      background: linear-gradient(135deg, #ff3b3b, #ff6a6a);
+      color: #fff; text-decoration: none; font-size: 14px;
+      box-shadow: 0 20px 40px rgba(255,59,59,.4);
+    }
+
+    footer {
+      text-align: center; padding: 30px; color: #666;
+      border-top: 1px solid #111;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1>A</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Hi 👋 I'm <span>Alekhya Ramisetty</span></h2>
+    <p>Associate Software Engineer | Data • Networking • Cloud</p>
+
+    <div class="quick-wrap">
+      <p style="color:#aaa;margin-bottom:14px">Quick look · Tap a card to peek</p>
+      <div class="quick" style="overflow-x:auto;flex-wrap:nowrap;padding-bottom:10px">
+        <div class="q-card" onclick="openModal()"><i class="fas fa-user"></i><h4>About Me</h4><span>Tap to peek</span></div>
+        <div class="q-card"><i class="fas fa-layer-group"></i><h4>Skills</h4><span>Tech stack</span></div>
+        <div class="q-card"><i class="fas fa-briefcase"></i><h4>Experience</h4><span>Timeline</span></div>
+        <div class="q-card"><i class="fas fa-code"></i><h4>Projects</h4><span>Work</span></div>
+        <div class="q-card"><i class="fas fa-certificate"></i><h4>Certifications</h4><span>Credentials</span></div>
+        <div class="q-card" onclick="openContact()"><i class="fas fa-envelope"></i><h4>Contact</h4><span>Reach me</span></div>
+      </div>
+        
+        <div class="q-card" onclick="location.href='#skills'"><i class="fas fa-layer-group"></i><h4>Skills</h4><span>Tech stack</span></div>
+        <div class="q-card" onclick="location.href='#projects'"><i class="fas fa-code"></i><h4>Projects</h4><span>Selected work</span></div>
+        <div class="q-card" onclick="location.href='#experience'"><i class="fas fa-briefcase"></i><h4>Experience</h4><span>Industry</span></div>
+        <div class="q-card"><i class="fas fa-certificate"></i><h4>Certifications</h4><span>Credentials</span></div>
+        <div class="q-card" onclick="location.href='#resume'"><i class="fas fa-download"></i><h4>Resume</h4><span>Download</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="skills">
+  <h3>Technical <span>Expertise</span></h3>
+  <div class="grid">
+    <div class="glass">
+      <h4>Programming</h4>
+      <div class="skill"><span>C / C++</span><span>Advanced</span></div>
+      <div class="skill"><span>Python</span><span>Advanced</span></div>
+      <div class="skill"><span>SQL</span><span>Advanced</span></div>
+      <div class="skill"><span>Java</span><span>Intermediate</span></div>
+    </div>
+    <div class="glass">
+      <h4>Cloud & Data</h4>
+      <div class="skill"><span>AWS, GCP</span><span>Advanced</span></div>
+      <div class="skill"><span>BigQuery, Snowflake</span><span>Advanced</span></div>
+      <div class="skill"><span>Docker, CI/CD</span><span>Advanced</span></div>
+      <div class="skill"><span>Wireshark, OAI</span><span>Advanced</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h3>Resume</h3>
+  <a class="btn" href="Alekhya_Ramisetty_Resume.pdf" download>Download Resume</a>
+</section>
+
+<footer>
+  © 2026 Alekhya Ramisetty · 3D Portfolio
+</footer>
+
+<!-- ABOUT MODAL -->
+<!-- ABOUT MODAL -->
+<div id="aboutModal" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000">
+  <div class="glass" style="max-width:520px;width:90%;text-align:center;position:relative">
+    <span onclick="closeModal()" style="position:absolute;top:15px;right:20px;cursor:pointer;font-size:22px">✕</span>
+
+    <!-- ROUND PHOTO -->
+    <img src="profile.jpg" alt="Alekhya Ramisetty"
+      style="width:140px;height:140px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block;box-shadow:0 20px 40px rgba(0,0,0,.6)" />
+
+    <h3 style="margin-bottom:12px">Alekhya Ramisetty</h3>
+
+    <!-- ABOUT CONTENT -->
+    <div style="text-align:left;color:#ddd;font-size:14px;line-height:1.7">
+      <p style="text-align:center;margin-bottom:14px">
+        Associate Software Engineer with 1+ year of experience across <strong>data engineering</strong> and <strong>networking systems</strong>, focused on building reliable, production‑ready solutions.
+      </p>
+
+      <ul style="list-style:none;padding:0;margin:0">
+        <li style="margin-bottom:10px"><i class="fas fa-database" style="color:#ff3b3b;margin-right:8px"></i>
+          Design and build <strong>ETL pipelines</strong> using <strong>Python, SQL, BigQuery</strong> to transform raw data into actionable insights.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-cloud" style="color:#ff3b3b;margin-right:8px"></i>
+          Develop and deploy <strong>cloud‑native data systems</strong> on <strong>AWS & GCP</strong> with scalability and reliability in mind.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-network-wired" style="color:#ff3b3b;margin-right:8px"></i>
+          Implement and test <strong>TCP/UDP socket programming</strong> and <strong>4G/5G protocols</strong> using <strong>Wireshark</strong> and <strong>OpenAirInterface</strong>.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-microchip" style="color:#ff3b3b;margin-right:8px"></i>
+          Work across <strong>Layer 1–3</strong> (PHY, MAC, RLC, PDCP, RRC, NAS) in telecom environments.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-terminal" style="color:#ff3b3b;margin-right:8px"></i>
+          Build <strong>Linux‑based system components</strong> using IPC mechanisms with a focus on performance and stability.
+        </li>
+        <li><i class="fas fa-code" style="color:#ff3b3b;margin-right:8px"></i>
+          Follow <strong>clean coding practices</strong>, version control, and reproducibility to deliver systems teams can trust.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('aboutModal').style.display = 'flex';
+  }
+  function closeModal() {
+    document.getElementById('aboutModal').style.display = 'none';
+  }
+</script>
+</body>
+</html>
 
