@@ -174,21 +174,43 @@
 </footer>
 
 <!-- ABOUT MODAL -->
+<!-- ABOUT MODAL -->
 <div id="aboutModal" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000">
-  <div class="glass" style="max-width:700px;width:90%;display:flex;gap:25px;align-items:center;position:relative">
+  <div class="glass" style="max-width:520px;width:90%;text-align:center;position:relative">
     <span onclick="closeModal()" style="position:absolute;top:15px;right:20px;cursor:pointer;font-size:22px">✕</span>
-    <img src="profile.jpg" alt="Alekhya Ramisetty" style="width:220px;height:280px;object-fit:cover;border-radius:18px" />
-    <div>
-      <h3 style="margin-bottom:10px">Alekhya Ramisetty</h3>
-      <p style="line-height:1.7;color:#ddd">
-        Hello, I’m Alekhya — welcome to my profile! I’m a software engineer with a strong interest in the intersection of data, networking, and real‑world impact.
-        Over the years, I’ve worked on building reliable data pipelines, ETL processes, and networking systems using Python, SQL, BigQuery, AWS, and GCP — helping teams turn complex, unstructured data and systems into clear, actionable outcomes.
-        <br><br>
-        What excites me most is the journey from raw inputs to real value — whether that’s designing scalable data pipelines, optimizing TCP/UDP communication, or working across 4G/5G protocol layers to improve system efficiency and reliability.
-        I enjoy building clean, maintainable systems that engineers and stakeholders can truly depend on.
-        <br><br>
-        Beyond work, I believe strongly in balance and continuous learning. You’ll often find me exploring new technologies, improving my problem‑solving skills, or taking time to recharge — each experience helping me grow in curiosity, resilience, and adaptability.
+
+    <!-- ROUND PHOTO -->
+    <img src="profile.jpg" alt="Alekhya Ramisetty"
+      style="width:140px;height:140px;object-fit:cover;border-radius:50%;margin:10px auto 20px;display:block;box-shadow:0 20px 40px rgba(0,0,0,.6)" />
+
+    <h3 style="margin-bottom:12px">Alekhya Ramisetty</h3>
+
+    <!-- ABOUT CONTENT -->
+    <div style="text-align:left;color:#ddd;font-size:14px;line-height:1.7">
+      <p style="text-align:center;margin-bottom:14px">
+        Associate Software Engineer with 1+ year of experience across <strong>data engineering</strong> and <strong>networking systems</strong>, focused on building reliable, production‑ready solutions.
       </p>
+
+      <ul style="list-style:none;padding:0;margin:0">
+        <li style="margin-bottom:10px"><i class="fas fa-database" style="color:#ff3b3b;margin-right:8px"></i>
+          Design and build <strong>ETL pipelines</strong> using <strong>Python, SQL, BigQuery</strong> to transform raw data into actionable insights.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-cloud" style="color:#ff3b3b;margin-right:8px"></i>
+          Develop and deploy <strong>cloud‑native data systems</strong> on <strong>AWS & GCP</strong> with scalability and reliability in mind.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-network-wired" style="color:#ff3b3b;margin-right:8px"></i>
+          Implement and test <strong>TCP/UDP socket programming</strong> and <strong>4G/5G protocols</strong> using <strong>Wireshark</strong> and <strong>OpenAirInterface</strong>.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-microchip" style="color:#ff3b3b;margin-right:8px"></i>
+          Work across <strong>Layer 1–3</strong> (PHY, MAC, RLC, PDCP, RRC, NAS) in telecom environments.
+        </li>
+        <li style="margin-bottom:10px"><i class="fas fa-terminal" style="color:#ff3b3b;margin-right:8px"></i>
+          Build <strong>Linux‑based system components</strong> using IPC mechanisms with a focus on performance and stability.
+        </li>
+        <li><i class="fas fa-code" style="color:#ff3b3b;margin-right:8px"></i>
+          Follow <strong>clean coding practices</strong>, version control, and reproducibility to deliver systems teams can trust.
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -203,3 +225,4 @@
 </script>
 </body>
 </html>
+
