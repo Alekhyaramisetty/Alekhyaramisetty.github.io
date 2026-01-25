@@ -3,83 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alekhya Ramisetty | Software Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Alekhya Ramisetty | 3D Portfolio</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #000; color: #fff; }
+    body {
+      background: radial-gradient(circle at top, #0b0b0b, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
 
     /* NAVBAR */
     header {
       position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(12px);
       border-bottom: 1px solid #111;
     }
     nav {
-      max-width: 1200px; margin: auto; padding: 15px 20px;
+      max-width: 1200px; margin: auto; padding: 14px 20px;
       display: flex; justify-content: space-between; align-items: center;
     }
     nav h1 { color: #ff3b3b; font-size: 22px; }
     nav ul { list-style: none; display: flex; gap: 22px; }
-    nav ul li a {
-      text-decoration: none; color: #fff; font-size: 14px;
-      transition: color .3s;
-    }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 14px; opacity: .85; }
     nav ul li a:hover { color: #ff3b3b; }
 
     /* HERO */
     .hero {
-      height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 20px;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 60px;
     }
-    .hero h2 { font-size: 48px; font-weight: 700; }
+    .hero h2 { font-size: 52px; font-weight: 700; }
     .hero h2 span { color: #ff3b3b; }
-    .hero p { margin-top: 10px; font-size: 20px; color: #ccc; }
+    .hero p { margin-top: 12px; font-size: 20px; color: #ccc; }
 
-    /* QUICK CARDS */
+    /* QUICK LOOK 3D CARDS */
+    .quick-wrap {
+      margin-top: 50px;
+      perspective: 1200px;
+    }
     .quick {
-      margin-top: 40px;
-      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+      display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
     }
-    .card {
-      width: 200px; padding: 20px;
-      background: linear-gradient(145deg, #0b0b0b, #111);
-      border-radius: 16px; text-align: center;
-      transition: transform .3s, box-shadow .3s;
+    .q-card {
+      width: 220px; height: 150px;
+      background: linear-gradient(145deg, #0e0e0e, #151515);
+      border-radius: 18px;
+      padding: 20px;
+      transform-style: preserve-3d;
+      transition: transform .6s ease, box-shadow .6s ease;
       border: 1px solid #111;
+      cursor: pointer;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(255,59,59,0.3);
+    .q-card:hover {
+      transform: rotateY(18deg) rotateX(10deg) translateY(-12px);
+      box-shadow: 0 30px 60px rgba(255,59,59,0.35);
     }
-    .card i { font-size: 28px; margin-bottom: 10px; color: #ff3b3b; }
-    .card h4 { font-size: 16px; margin-bottom: 6px; }
-    .card span { font-size: 13px; color: #aaa; }
+    .q-card i { font-size: 28px; color: #ff3b3b; margin-bottom: 10px; }
+    .q-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .q-card span { font-size: 13px; color: #aaa; }
 
-    /* SECTION */
+    /* SECTIONS */
     section {
-      max-width: 1200px; margin: auto; padding: 80px 20px;
+      max-width: 1200px; margin: auto; padding: 90px 20px;
     }
-    section h3 { font-size: 28px; margin-bottom: 20px; }
+    section h3 {
+      font-size: 32px; margin-bottom: 30px;
+    }
     section h3 span { color: #ff3b3b; }
 
-    /* SKILLS */
-    .skills {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 20px;
+    /* GLASS CARDS */
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
     }
-    .skill-box {
-      background: #0b0b0b; border: 1px solid #111; border-radius: 16px; padding: 20px;
-    }
-    .skill-box h4 { margin-bottom: 10px; }
-    .skill { display: flex; justify-content: space-between; font-size: 14px; margin: 8px 0; color: #ccc; }
 
-    /* FOOTER */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 22px; }
+
+    /* SKILLS */
+    .skill { display: flex; justify-content: space-between; font-size: 14px; margin: 8px 0; color: #ddd; }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block; margin-top: 20px;
+      padding: 12px 22px; border-radius: 30px;
+      background: linear-gradient(135deg, #ff3b3b, #ff6a6a);
+      color: #fff; text-decoration: none; font-size: 14px;
+      box-shadow: 0 20px 40px rgba(255,59,59,.4);
+    }
+
     footer {
-      text-align: center; padding: 30px; color: #666; border-top: 1px solid #111;
+      text-align: center; padding: 30px; color: #666;
+      border-top: 1px solid #111;
     }
   </style>
 </head>
@@ -89,7 +113,7 @@
   <nav>
     <h1>A</h1>
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -101,63 +125,57 @@
 <section class="hero">
   <div>
     <h2>Hi 👋 I'm <span>Alekhya Ramisetty</span></h2>
-    <p>Associate Software Engineer | Data & Networking Enthusiast</p>
+    <p>Associate Software Engineer | Data • Networking • Cloud</p>
 
-    <div class="quick">
-      <div class="card">
-        <i class="fas fa-code"></i>
-        <h4>Projects</h4>
-        <span>Selected work</span>
-      </div>
-      <div class="card">
-        <i class="fas fa-certificate"></i>
-        <h4>Certifications</h4>
-        <span>Credentials</span>
-      </div>
-      <div class="card">
-        <i class="fas fa-envelope"></i>
-        <h4>Contact</h4>
-        <span>Reach out</span>
-      </div>
-      <div class="card">
-        <i class="fas fa-user"></i>
-        <h4>About Me</h4>
-        <span>Summary</span>
+    <div class="quick-wrap">
+      <p style="color:#aaa;margin-bottom:14px">Quick look · Tap a card to peek</p>
+      <div class="quick">
+        <div class="q-card" onclick="location.href='#about'"><i class="fas fa-user"></i><h4>About Me</h4><span>Summary</span></div>
+        <div class="q-card" onclick="location.href='#skills'"><i class="fas fa-layer-group"></i><h4>Skills</h4><span>Tech stack</span></div>
+        <div class="q-card" onclick="location.href='#projects'"><i class="fas fa-code"></i><h4>Projects</h4><span>Selected work</span></div>
+        <div class="q-card" onclick="location.href='#experience'"><i class="fas fa-briefcase"></i><h4>Experience</h4><span>Industry</span></div>
+        <div class="q-card"><i class="fas fa-certificate"></i><h4>Certifications</h4><span>Credentials</span></div>
+        <div class="q-card" onclick="location.href='#resume'"><i class="fas fa-download"></i><h4>Resume</h4><span>Download</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="about">
+  <h3>About <span>Me</span></h3>
+  <div class="glass">
+    <p>Associate Software Engineer with experience in data pipelines, ETL processes, and 4G/5G networking systems. Strong background in Python, SQL, BigQuery, AWS, and GCP, with hands-on experience in TCP/UDP protocols, Linux IPC, and cloud-native development.</p>
   </div>
 </section>
 
 <section id="skills">
   <h3>Technical <span>Expertise</span></h3>
-  <div class="skills">
-    <div class="skill-box">
-      <h4>Programming Languages</h4>
+  <div class="grid">
+    <div class="glass">
+      <h4>Programming</h4>
       <div class="skill"><span>C / C++</span><span>Advanced</span></div>
       <div class="skill"><span>Python</span><span>Advanced</span></div>
       <div class="skill"><span>SQL</span><span>Advanced</span></div>
       <div class="skill"><span>Java</span><span>Intermediate</span></div>
     </div>
-      <div class="skill"><span>Java</span><span>Advanced</span></div>
-      <div class="skill"><span>SQL</span><span>Advanced</span></div>
-    </div>
-    <div class="skill-box">
-      <h4>Cloud, Data & Tools</h4>
+    <div class="glass">
+      <h4>Cloud & Data</h4>
       <div class="skill"><span>AWS, GCP</span><span>Advanced</span></div>
       <div class="skill"><span>BigQuery, Snowflake</span><span>Advanced</span></div>
-      <div class="skill"><span>Docker, Git, CI/CD</span><span>Advanced</span></div>
+      <div class="skill"><span>Docker, CI/CD</span><span>Advanced</span></div>
       <div class="skill"><span>Wireshark, OAI</span><span>Advanced</span></div>
-    </div>
-      <div class="skill"><span>Azure</span><span>Advanced</span></div>
-      <div class="skill"><span>GCP</span><span>Intermediate</span></div>
     </div>
   </div>
 </section>
 
+<section id="resume">
+  <h3>Resume</h3>
+  <a class="btn" href="Alekhya_Ramisetty_Resume.pdf" download>Download Resume</a>
+</section>
+
 <footer>
-  © 2026 Alekhya Ramisetty · All Rights Reserved
+  © 2026 Alekhya Ramisetty · 3D Portfolio
 </footer>
 
 </body>
 </html>
-
