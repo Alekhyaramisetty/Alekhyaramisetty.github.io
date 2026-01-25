@@ -3,212 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alekhya Ramisetty | Portfolio</title>
+  <title>Alekhya Ramisetty | 3D Portfolio</title>
 
   <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #1b1f3b, #0b0d1a);
+      background: radial-gradient(circle at top, #0b0b0b, #000);
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111;
+    }
+    nav {
+      max-width: 1200px; margin: auto; padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav h1 { color: #ff3b3b; font-size: 22px; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul li a { color: #fff; text-decoration: none; font-size: 14px; opacity: .85; }
+    nav ul li a:hover { color: #ff3b3b; }
+
+    /* HERO */
+    .hero {
       min-height: 100vh;
-      padding: 40px 20px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 60px;
     }
+    .hero h2 { font-size: 52px; font-weight: 700; }
+    .hero h2 span { color: #ff3b3b; }
+    .hero p { margin-top: 12px; font-size: 20px; color: #ccc; }
 
-    h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    p.subtitle { opacity: .8; margin-bottom: 40px; }
-
-    /* Quick Look */
-    .quick-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 30px;
+    /* QUICK LOOK 3D CARDS */
+    .quick-wrap {
+      margin-top: 50px;
+      perspective: 1200px;
     }
-
     .quick {
-      display: flex;
-      gap: 22px;
-      overflow: hidden; /* no mouse scroll */
-      width: 260px; /* one card at a time */
+      display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
     }
-
     .q-card {
-      flex: 0 0 260px;
-      background: rgba(255,255,255,0.08);
+      width: 220px; height: 150px;
+      background: linear-gradient(145deg, #0e0e0e, #151515);
       border-radius: 18px;
-      padding: 24px 20px;
-      text-align: center;
+      padding: 20px;
+      transform-style: preserve-3d;
+      transition: transform .6s ease, box-shadow .6s ease;
+      border: 1px solid #111;
       cursor: pointer;
-      transition: transform .3s ease, background .3s ease;
-      backdrop-filter: blur(12px);
     }
-
     .q-card:hover {
-      transform: translateY(-6px) scale(1.03);
-      background: rgba(255,255,255,0.15);
+      transform: rotateY(18deg) rotateX(10deg) translateY(-12px);
+      box-shadow: 0 30px 60px rgba(255,59,59,0.35);
     }
+    .q-card i { font-size: 28px; color: #ff3b3b; margin-bottom: 10px; }
+    .q-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .q-card span { font-size: 13px; color: #aaa; }
 
-    .q-card i {
-      font-size: 26px;
-      margin-bottom: 12px;
-      color: #ff3b3b;
+    /* SECTIONS */
+    section {
+      max-width: 1200px; margin: auto; padding: 90px 20px;
     }
-
-    .q-card span {
-      font-size: 12px;
-      opacity: .7;
+    section h3 {
+      font-size: 32px; margin-bottom: 30px;
     }
+    section h3 span { color: #ff3b3b; }
 
-    .scroll-btn {
-      background: rgba(255,255,255,0.12);
-      border: none;
-      color: #fff;
-      font-size: 28px;
-      padding: 6px 14px;
-      cursor: pointer;
-      border-radius: 10px;
-    }
-
-    .scroll-btn:hover { background: rgba(255,255,255,0.25); }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-
-    .modal-content {
-      background: rgba(255,255,255,0.08);
+    /* GLASS CARDS */
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      padding: 30px 26px;
-      max-width: 520px;
-      width: 92%;
-      text-align: center;
-      backdrop-filter: blur(16px);
-      position: relative;
+      padding: 25px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 30px 60px rgba(0,0,0,.4);
     }
 
-    .modal-content img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.6);
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 22px; }
+
+    /* SKILLS */
+    .skill { display: flex; justify-content: space-between; font-size: 14px; margin: 8px 0; color: #ddd; }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block; margin-top: 20px;
+      padding: 12px 22px; border-radius: 30px;
+      background: linear-gradient(135deg, #ff3b3b, #ff6a6a);
+      color: #fff; text-decoration: none; font-size: 14px;
+      box-shadow: 0 20px 40px rgba(255,59,59,.4);
     }
 
-    .modal-content ul {
-      list-style: none;
-      margin-top: 18px;
-      text-align: left;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .modal-content li { margin-bottom: 10px; }
-
-    .close {
-      position: absolute;
-      top: 14px;
-      right: 18px;
-      font-size: 22px;
-      cursor: pointer;
+    footer {
+      text-align: center; padding: 30px; color: #666;
+      border-top: 1px solid #111;
     }
   </style>
 </head>
 <body>
 
-  <h1>Alekhya Ramisetty</h1>
-  <p class="subtitle">Software Engineer | Data Engineering | Networking</p>
+<header>
+  <nav>
+    <h1>A</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <h3>Quick look · Tap a card to peek</h3>
+<section class="hero">
+  <div>
+    <h2>Hi 👋 I'm <span>Alekhya Ramisetty</span></h2>
+    <p>Associate Software Engineer | Data • Networking • Cloud</p>
 
-  <div class="quick-wrapper">
-    <button class="scroll-btn" onclick="scrollQuick(-1)">‹</button>
-
-    <div class="quick" id="quickScroll">
-      <div class="q-card" onclick="openAbout()">
-        <i class="fas fa-user"></i>
-        <h4>About Me</h4>
-        <span>Tap to peek</span>
-      </div>
-
-      <div class="q-card">
-        <i class="fas fa-layer-group"></i>
-        <h4>Skills</h4>
-        <span>Tech stack</span>
-      </div>
-
-      <div class="q-card">
-        <i class="fas fa-briefcase"></i>
-        <h4>Experience</h4>
-        <span>Timeline</span>
-      </div>
-
-      <div class="q-card">
-        <i class="fas fa-code"></i>
-        <h4>Projects</h4>
-        <span>Work</span>
-      </div>
-
-      <div class="q-card">
-        <i class="fas fa-certificate"></i>
-        <h4>Certifications</h4>
-        <span>Credentials</span>
-      </div>
-
-      <div class="q-card">
-        <i class="fas fa-envelope"></i>
-        <h4>Contact</h4>
-        <span>Reach me</span>
+    <div class="quick-wrap">
+      <p style="color:#aaa;margin-bottom:14px">Quick look · Tap a card to peek</p>
+      <div class="quick">
+        <div class="q-card" onclick="openModal()"><i class="fas fa-user"></i><h4>About Me</h4><span>Tap to peek</span></div>
+        
+        <div class="q-card" onclick="location.href='#skills'"><i class="fas fa-layer-group"></i><h4>Skills</h4><span>Tech stack</span></div>
+        <div class="q-card" onclick="location.href='#projects'"><i class="fas fa-code"></i><h4>Projects</h4><span>Selected work</span></div>
+        <div class="q-card" onclick="location.href='#experience'"><i class="fas fa-briefcase"></i><h4>Experience</h4><span>Industry</span></div>
+        <div class="q-card"><i class="fas fa-certificate"></i><h4>Certifications</h4><span>Credentials</span></div>
+        <div class="q-card" onclick="location.href='#resume'"><i class="fas fa-download"></i><h4>Resume</h4><span>Download</span></div>
       </div>
     </div>
-
-    <button class="scroll-btn" onclick="scrollQuick(1)">›</button>
   </div>
+</section>
 
-  <!-- ABOUT MODAL -->
-  <div class="modal" id="aboutModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeAbout()">✕</span>
-      <img src="profile.jpg" alt="Alekhya Ramisetty">
-      <h3>How I Work</h3>
-      <ul>
-        <li><i class="fas fa-database"></i> Build ETL pipelines using Python, SQL & BigQuery</li>
-        <li><i class="fas fa-cloud"></i> Develop scalable systems on AWS & GCP</li>
-        <li><i class="fas fa-network-wired"></i> TCP/UDP & 4G/5G protocol testing</li>
-        <li><i class="fas fa-microchip"></i> Work across telecom Layer 1–3</li>
-        <li><i class="fas fa-terminal"></i> Linux system programming & IPC</li>
-        <li><i class="fas fa-code"></i> Clean, maintainable, production-ready code</li>
-      </ul>
+
+
+<section id="skills">
+  <h3>Technical <span>Expertise</span></h3>
+  <div class="grid">
+    <div class="glass">
+      <h4>Programming</h4>
+      <div class="skill"><span>C / C++</span><span>Advanced</span></div>
+      <div class="skill"><span>Python</span><span>Advanced</span></div>
+      <div class="skill"><span>SQL</span><span>Advanced</span></div>
+      <div class="skill"><span>Java</span><span>Intermediate</span></div>
+    </div>
+    <div class="glass">
+      <h4>Cloud & Data</h4>
+      <div class="skill"><span>AWS, GCP</span><span>Advanced</span></div>
+      <div class="skill"><span>BigQuery, Snowflake</span><span>Advanced</span></div>
+      <div class="skill"><span>Docker, CI/CD</span><span>Advanced</span></div>
+      <div class="skill"><span>Wireshark, OAI</span><span>Advanced</span></div>
     </div>
   </div>
+</section>
 
-  <script>
-    function scrollQuick(dir) {
-      const c = document.getElementById('quickScroll');
-      c.scrollBy({ left: dir * 282, behavior: 'smooth' });
-    }
+<section id="resume">
+  <h3>Resume</h3>
+  <a class="btn" href="Alekhya_Ramisetty_Resume.pdf" download>Download Resume</a>
+</section>
 
-    function openAbout() {
-      document.getElementById('aboutModal').style.display = 'flex';
-    }
+<footer>
+  © 2026 Alekhya Ramisetty · 3D Portfolio
+</footer>
 
-    function closeAbout() {
-      document.getElementById('aboutModal').style.display = 'none';
-    }
-  </script>
+<!-- ABOUT MODAL -->
+<div id="aboutModal" style="position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2000">
+  <div class="glass" style="max-width:700px;width:90%;display:flex;gap:25px;align-items:center;position:relative">
+    <span onclick="closeModal()" style="position:absolute;top:15px;right:20px;cursor:pointer;font-size:22px">✕</span>
+    <img src="profile.jpg" alt="Alekhya Ramisetty" style="width:220px;height:280px;object-fit:cover;border-radius:18px" />
+    <div>
+      <h3 style="margin-bottom:10px">Alekhya Ramisetty</h3>
+      <p style="line-height:1.7;color:#ddd">
+        Hello, I’m Alekhya — welcome to my profile! I’m a software engineer with a strong interest in the intersection of data, networking, and real‑world impact.
+        Over the years, I’ve worked on building reliable data pipelines, ETL processes, and networking systems using Python, SQL, BigQuery, AWS, and GCP — helping teams turn complex, unstructured data and systems into clear, actionable outcomes.
+        <br><br>
+        What excites me most is the journey from raw inputs to real value — whether that’s designing scalable data pipelines, optimizing TCP/UDP communication, or working across 4G/5G protocol layers to improve system efficiency and reliability.
+        I enjoy building clean, maintainable systems that engineers and stakeholders can truly depend on.
+        <br><br>
+        Beyond work, I believe strongly in balance and continuous learning. You’ll often find me exploring new technologies, improving my problem‑solving skills, or taking time to recharge — each experience helping me grow in curiosity, resilience, and adaptability.
+      </p>
+    </div>
+  </div>
+</div>
 
+<script>
+  function openModal() {
+    document.getElementById('aboutModal').style.display = 'flex';
+  }
+  function closeModal() {
+    document.getElementById('aboutModal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
+
